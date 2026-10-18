@@ -316,12 +316,12 @@ async function main() {
     // -------------------------------------------------------------------
     console.log('[5/6] Navigating Back to Chat & Submitting Negative Query Q-011...');
     // Click Chat button in header
-    await smoothClick(page, page.getByRole('button', { name: 'Chat', exact: true }));
-    await page.waitForTimeout(800);
+    await page.getByRole('button', { name: 'Chat', exact: true }).click();
+    await page.waitForTimeout(600);
 
-    // Wait for the Benchmark select to be available
-    await page.waitForSelector('select', { timeout: 10000 });
+    // Select Q-011 (clinical dosage negative query)
     const chatSelect = page.locator('select').first();
+    await chatSelect.waitFor({ state: 'visible', timeout: 10000 });
     await smoothClick(page, chatSelect);
     await chatSelect.selectOption('Q-011');
     await page.waitForTimeout(1400);
