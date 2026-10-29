@@ -48,6 +48,13 @@ export const SUPPORTED_LLM_MODELS: LLMModelOption[] = [
     vramRequiredMB: 1150,
     description: 'Alibaba flagship compact model with strong structured context extraction capabilities.',
   },
+  {
+    id: 'gemma-4-E2B-it-q4f16_1-MLC',
+    name: 'Gemma 4 E2B Instruct',
+    parameters: 'E2B',
+    vramRequiredMB: 3387,
+    description: 'Secondary Google model. About 3.4 GB VRAM and shader-f16. Stays unloaded until you select it and warm up.',
+  },
 ];
 
 export const DEFAULT_MODEL_ID = 'Llama-3.2-1B-Instruct-q4f16_1-MLC';

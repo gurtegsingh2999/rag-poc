@@ -53,7 +53,7 @@ flowchart TD
 2. **Private & Secure:** Your queries, documents, embeddings, and completions never leave your browser sandbox.
 3. **In-Memory Heap Vector Index:** 367 chunk embeddings stored as contiguous `Float32Array` buffers directly in JavaScript memory. Similarity search runs via high-speed linear dot-product vector mathematics ($O(N)$, $< 2\text{ ms}$ for the entire corpus).
 4. **WebGPU Local Inference:** Powered by `@mlc-ai/web-llm` running `Llama-3.2-1B-Instruct-q4f16_1-MLC` (~880 MB weights cached locally in browser Cache Storage / IndexedDB).
-5. **Configurable Models & Pipelines:** Hot-swap between 4 WebGPU LLMs (`Llama-3.2-1B`, `SmolLM2-1.7B`, `Qwen2.5-0.5B`, `Qwen2.5-1.5B`) and 4 ONNX embedding models (`all-MiniLM-L6-v2`, `bge-small-en-v1.5`, `paraphrase-MiniLM-L3`, `all-mpnet-base-v2`).
+5. **Configurable Models & Pipelines:** Hot-swap between 5 WebGPU LLMs (`Llama-3.2-1B` default, `SmolLM2-1.7B`, `Qwen2.5-0.5B`, `Qwen2.5-1.5B`, `Gemma-4-E2B`) and 4 ONNX embedding models (`all-MiniLM-L6-v2`, `bge-small-en-v1.5`, `paraphrase-MiniLM-L3`, `all-mpnet-base-v2`). Gemma 4 E2B is optional: it needs about 3.4 GB of VRAM and `shader-f16`, and it downloads only after you select it and warm up.
 6. **Graceful Fallback:** Automatically detects WebGPU support (`navigator.gpu`). If WebGPU is unavailable or disabled, the app falls back to **Semantic Retrieval Mode**, displaying ranked chunk matches, cosine similarity scores, and source evidence.
 7. **Educational DevTools & PDF Viewer:** Built-in PDF reader with canvas rendering, visual chunk inspection side-by-side, vector norms breakdown, and raw system prompt inspectability.
 
